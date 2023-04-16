@@ -121,7 +121,7 @@ TEST_CASE("Test Fraction Equality") {
     Fraction f3(3, 4);
     CHECK(f1 == f2);
     CHECK_FALSE(f1 == f3);
-    CHECK_NOTHROW(f1 == f2);
+    CHECK(f1 == f2);
 }
 
 TEST_CASE("Test Fraction Comparison") {
@@ -134,7 +134,7 @@ TEST_CASE("Test Fraction Comparison") {
     CHECK(f3 >= f2);
     CHECK_FALSE(f1 > f3);
     CHECK_FALSE(f3 < f1);
-    CHECK_NOTHROW(f1 < f2);
+    CHECK(f1 < f2);
 }
 
 TEST_CASE("Test Fraction Increment/Decrement") {

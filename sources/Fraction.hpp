@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cmath>
+using namespace std;
 
 namespace ariel{
 class Fraction {
@@ -20,7 +21,11 @@ public:
     // Getters
     int getNumerator() const;
     int getDenominator() const;
-
+    
+        // Friend functions for input/output;
+    friend ostream& operator<<(ostream& os , const Fraction& f);
+    friend std::istream& operator>>(std::istream& is, Fraction& fraction);
+    
     // Overloaded operators
     Fraction operator+(const Fraction& other) const;
     Fraction operator-(const Fraction& other) const;
@@ -32,14 +37,14 @@ public:
     bool operator<(const Fraction& other) const;
     bool operator>=(const Fraction& other) const;
     bool operator<=(const Fraction& other) const;
-    Fraction& operator++();
+    Fraction operator++();
     Fraction operator++(int);
-    Fraction& operator--();
+    Fraction operator--();
     Fraction operator--(int);
 
-    // Friend functions for input/output
-    friend std::ostream& operator<<(std::ostream& os, const Fraction& fraction);
-    friend std::istream& operator>>(std::istream& is, Fraction& fraction);
+
+
+    friend Fraction operator*(float a, const Fraction& other);
     void reduce();
 
 private:
